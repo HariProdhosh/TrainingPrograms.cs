@@ -12,6 +12,7 @@ namespace TrainingPrograms.cs.Problems
             a = a - b;
             Console.WriteLine($"After swapping: a={a}, b={b}");
         }
+
         public static void ArmStrongNumber(int number)
         {
             int temp, sum = 0, reminder;
@@ -32,6 +33,7 @@ namespace TrainingPrograms.cs.Problems
                 Console.WriteLine($"The given number is not a armstrong number: {temp}");
             }
         }
+
         public static void FibonnaciSeries(int numbersToBePrint)
         {
             int num1 = 0, num2 = 1;
@@ -43,6 +45,7 @@ namespace TrainingPrograms.cs.Problems
                 num2 = num3;
             }
         }
+
         public static void ReverseANumber(int number)
         {
             int rev = 0, reminder, temp = number;
@@ -62,6 +65,7 @@ namespace TrainingPrograms.cs.Problems
                 Console.WriteLine($"The given number: {temp} is not a palindrome");
             }
         }
+
         public static void FactorialNumebr(int number)
         {
             int fact = 1;
@@ -74,6 +78,7 @@ namespace TrainingPrograms.cs.Problems
                 }
             }
         }
+
         public static void FindNumbersStartingWith1UsingString(int[] numbers)
         {
             List<int> result = new List<int>();
@@ -86,6 +91,7 @@ namespace TrainingPrograms.cs.Problems
             }
             Console.WriteLine($"The numbers starts with 1 are: {string.Join(",", result)}");
         }
+
         public static void FindNumbersStartingWith1(int[] num)
         {
             List<int> result = new List<int>();
@@ -102,8 +108,8 @@ namespace TrainingPrograms.cs.Problems
                 }
             }
             Console.WriteLine($"The values starts with 1 are as follows: {string.Join(",", result)}");
-
         }
+
         public static void FindDuplicateCharacters(string input)
         {
             input = input.ToUpper();
@@ -128,6 +134,7 @@ namespace TrainingPrograms.cs.Problems
                 }
             }
         }
+
         public static bool CheckTheStringsAreAnagram(string input1, string input2)
         {
             input1 = input1.ToLower().Replace(" ", "");
@@ -172,6 +179,7 @@ namespace TrainingPrograms.cs.Problems
             Console.WriteLine($"The given strings {input1} and {input2} are Anagram");
             return true;
         }
+
         public static void FindTheSecondLargestNumber(int[] num)
         {
             int max = 0, nextmax = 0;
@@ -189,6 +197,7 @@ namespace TrainingPrograms.cs.Problems
             }
             Console.WriteLine($"The second larget number in the given array is {nextmax}");
         }
+
         public static void CheckPalindrome(string inp)
         {
             inp.ToLower();
@@ -204,6 +213,7 @@ namespace TrainingPrograms.cs.Problems
             }
             Console.WriteLine($"The given string: {inp} is a palindrome");
         }
+
         public static void CheckRepeatedLettersAndPrintCount(string inp)
         {
             inp = inp.ToLower();
@@ -227,6 +237,7 @@ namespace TrainingPrograms.cs.Problems
                 Console.WriteLine($"The character {c.Key} is repeated {c.Value} times");
             }
         }
+
         public static void CheckRepeatedWordsAndPrintCount(string inp)
         {
             inp = inp.ToLower();
@@ -247,6 +258,7 @@ namespace TrainingPrograms.cs.Problems
                 Console.WriteLine($"The word {item.Key} is repeated {item.Value} times");
             }
         }
+
         public static void CheckDuplicateElements(int[] inp)
         {
             Dictionary<int, int> dic = new();
@@ -269,6 +281,7 @@ namespace TrainingPrograms.cs.Problems
                 }
             }
         }
+
         public static void DecimalToBinary(int inp)
         {
             if (inp == 0)
@@ -285,6 +298,7 @@ namespace TrainingPrograms.cs.Problems
             }
             Console.WriteLine($"The binary value for the given input {inp} is {res}");
         }
+
         public static void RemoveSpecialCharactersUsingRegex(string inp)
         {
             string pattern = "[^a-zA-Z0-9 ]";//Using ^ will keep things said after it
@@ -295,6 +309,7 @@ namespace TrainingPrograms.cs.Problems
             string res = Regex.Replace(inp, pattern, "");
             Console.WriteLine($"The given string without the special character is: {res}");
         }
+
         public static void ReplaceCharactersInTheGivenString(string inp)
         {
             Console.WriteLine($"The given string is: {inp}");
@@ -317,6 +332,7 @@ namespace TrainingPrograms.cs.Problems
                 }
             }
         }
+
         public static void CountVowelsAndConsonantsInTheGivenString(string inp)
         {
             string pattern = @"[^a-zA-Z0-9]";
@@ -335,6 +351,7 @@ namespace TrainingPrograms.cs.Problems
             }
             Console.WriteLine($"Consonant = {con}, Vowels = {vow}");
         }
+
         public static void AddAllTheElementsInTheArray(int[] inp)
         {
             int res = 0;
@@ -344,6 +361,7 @@ namespace TrainingPrograms.cs.Problems
             }
             Console.WriteLine($"The total value of the given array is: {res}");
         }
+
         public static void ReverseTheGivenArray(int[] inp)
         {
             int len = inp.Length;
@@ -354,6 +372,7 @@ namespace TrainingPrograms.cs.Problems
             }
             Console.WriteLine($"The reversed givenarray is: {string.Join(",", rev)}");
         }
+
         public static void SortTheNumbersInTheGivenArray(int[] inp, string ascOrDsc)
         {
             for (int i = 0; i < inp.Length - 1; i++)
@@ -378,10 +397,91 @@ namespace TrainingPrograms.cs.Problems
                             inp[j + 1] = temp;
                         }
                     }
-
                 }
             }
             Console.WriteLine(string.Join(",", inp));
+        }
+
+        public static void ChecKTheNumberIsOddOrEven(int inp)
+        {
+            if (inp % 2 == 0)
+            {
+                Console.WriteLine($"The given number {inp} is an Even num");
+            }
+            else
+            {
+                Console.WriteLine($"The given number {inp} is an Odd num");
+            }
+        }
+
+        public static bool CheckTheNumberIsAPrimeOrNot(int inp)
+        {
+            if (inp <= 1)
+            {
+                Console.WriteLine($"The given number {inp} is not a prime number");
+                return false;
+            }
+            if (inp % 2 == 0)
+            {
+                Console.WriteLine($"The given number {inp} is not a prime number");
+                return false;
+            }
+
+            if (inp == 2)
+            {
+                Console.WriteLine($"The given number {inp} is a prime number");
+                return true;
+            }
+            for (int i = 3; i < Math.Sqrt(inp); i += 2)
+            {
+                if (inp % i == 0)
+                {
+                    Console.WriteLine($"The given number {inp} is not a prime number");
+                    return false;
+                }
+            }
+            Console.WriteLine($"The given number {inp} is a prime number");
+            return true;
+        }
+
+        public static void FindTheLargestNumberFromTheGIvenThreeNumbers(int num1, int num2, int num3)
+        {
+            if (num1 > num2 && num1 > num3)
+            {
+                Console.WriteLine($"The number {num1} is the greatest");
+            }
+            else if (num2 > num1 && num2 > num3)
+            {
+                Console.WriteLine($"The number {num2} is the greatest");
+            }
+            else
+            {
+                Console.WriteLine($"The number {num3} is the greatest");
+            }
+        }
+
+        public static void SumOfAllTheDigitsInTheGivenNumber(int inp)
+        {
+            int temp = inp;
+            int sum = 0;
+            while (temp != 0)
+            {
+                int rem = temp % 10;
+                sum = sum + rem;
+                temp = temp / 10;
+            }
+            Console.WriteLine($"The sum of the numbers in the given number {inp} is {sum}");
+        }
+
+        public static void CountDigitsInAGivenInteger(int inp)
+        {
+            int count = 0, temp = inp;
+            while (temp != 0)
+            {
+                temp /= 10;
+                count++;
+            }
+            Console.WriteLine($"The count of digits in the given number {inp} is {count}");
         }
     }
 }

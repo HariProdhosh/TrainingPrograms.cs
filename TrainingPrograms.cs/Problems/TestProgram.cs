@@ -25,6 +25,11 @@
             AddAllTheElementsInTheArray([10, 20, 30, 40, 50]);
             ReverseTheGivenArray([1, 2, 3, 4, 5, 6, 7]);
             SortTheNumbersInTheGivenArray([10, 3, 5, 6, 2, 8, 1, 7], "Dsc");
+            ChecKTheNumberIsOddOrEven(21);
+            CheckTheNumberIsAPrimeOrNot(11);
+            FindTheLargestNumberFromTheGIvenThreeNumbers(21, 31, 23);
+            SumOfAllTheDigitsInTheGivenNumber(1234);
+            CountDigitsInAGivenInteger(12345);
         }
     }
 }
