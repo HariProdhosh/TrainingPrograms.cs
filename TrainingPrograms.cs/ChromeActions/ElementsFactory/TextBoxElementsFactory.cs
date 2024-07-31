@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using TrainingPrograms.cs.ChromeActions.ControlsExtension;
 using TrainingPrograms.cs.ChromeActions.Text;
 
