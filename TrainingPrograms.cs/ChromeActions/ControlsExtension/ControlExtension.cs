@@ -10,19 +10,19 @@ namespace TrainingPrograms.cs.ChromeActions.ControlsExtension
         public static IWebElement waitForElement(this ISearchContext context, IWebDriver driver, By by, int timeOut = defaultTimeOutInSeconds)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
-            return wait.Until(x => x.FindElement(by));
+            return wait.Until(x => context.FindElement(by));
         }
 
         public static IReadOnlyCollection<IWebElement> waitForElements(this ISearchContext context, IWebDriver driver, By by, int timeOut = defaultTimeOutInSeconds)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
-            return wait.Until(x => x.FindElements(by));
+            return wait.Until(x => context.FindElements(by));
         }
 
         public static IWebElement? waitForElementEnableAndDisplayed(this ISearchContext context, IWebDriver driver, By by, int timeOut = defaultTimeOutInSeconds)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
-            var element = wait.Until(x => x.FindElement(by));
+            var element = wait.Until(x => context.FindElement(by));
             for (int i = 0; i < timeOut; i++)
             {
                 try
