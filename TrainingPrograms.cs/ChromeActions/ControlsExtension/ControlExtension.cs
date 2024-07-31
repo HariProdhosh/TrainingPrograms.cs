@@ -10,25 +10,21 @@ namespace TrainingPrograms.cs.ChromeActions.ControlsExtension
 {
     public static class ControlExtension
     {
-        public static WebDriverWait wait(this IWebDriver driver, int timeOut = 30)
-        {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
-            return wait;
-        }
+        private const int defaultTimeOutInSeconds = 30;
 
-        public static IWebElement waitForElement(this ISearchContext context, IWebDriver driver, By by, int timeOut = 30)
+        public static IWebElement waitForElement(this ISearchContext context, IWebDriver driver, By by, int timeOut = defaultTimeOutInSeconds)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
             return wait.Until(x => x.FindElement(by));
         }
 
-        public static IReadOnlyCollection<IWebElement> waitForElements(this ISearchContext context, IWebDriver driver, By by, int timeOut = 30)
+        public static IReadOnlyCollection<IWebElement> waitForElements(this ISearchContext context, IWebDriver driver, By by, int timeOut = defaultTimeOutInSeconds)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
             return wait.Until(x => x.FindElements(by));
         }
 
-        public static IWebElement? waitForElementEnableAndDisplayed(this ISearchContext context, IWebDriver driver, By by, int timeOut = 30)
+        public static IWebElement? waitForElementEnableAndDisplayed(this ISearchContext context, IWebDriver driver, By by, int timeOut = defaultTimeOutInSeconds)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut));
             var element = wait.Until(x => x.FindElement(by));
@@ -36,7 +32,7 @@ namespace TrainingPrograms.cs.ChromeActions.ControlsExtension
             {
                 try
                 {
-                    if (element.Enabled && element.Displayed)
+                    if (element.Displayed && element.Enabled)
                     {
                         return element;
                     }
