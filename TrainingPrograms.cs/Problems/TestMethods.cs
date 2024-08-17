@@ -1,9 +1,17 @@
+using OpenQA.Selenium.DevTools.V125.HeapProfiler;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace TrainingPrograms.cs.Problems
 {
     public class TestMethods
     {
+        /// <summary>
+        /// inp a=10,b=20
+        /// op a=20,b=10
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
         public static void SwapTwoVariables(int a, int b)
         {
             Console.WriteLine($"Before swapping: a={a}, b={b}");
@@ -414,6 +422,12 @@ namespace TrainingPrograms.cs.Problems
             }
         }
 
+        /// <summary>
+        /// inp=7
+        /// op=prime
+        /// </summary>
+        /// <param name="inp"></param>
+        /// <returns></returns>
         public static bool CheckTheNumberIsAPrimeOrNot(int inp)
         {
             if (inp <= 1)
@@ -444,6 +458,13 @@ namespace TrainingPrograms.cs.Problems
             return true;
         }
 
+        /// <summary>
+        /// inp num1=10,num2=20,num3=15
+        /// op=20
+        /// </summary>
+        /// <param name="num1"></param>
+        /// <param name="num2"></param>
+        /// <param name="num3"></param>
         public static void FindTheLargestNumberFromTheGIvenThreeNumbers(int num1, int num2, int num3)
         {
             if (num1 > num2 && num1 > num3)
@@ -460,6 +481,11 @@ namespace TrainingPrograms.cs.Problems
             }
         }
 
+        /// <summary>
+        /// inp=1234
+        /// op=10
+        /// </summary>
+        /// <param name="inp"></param>
         public static void SumOfAllTheDigitsInTheGivenNumber(int inp)
         {
             int temp = inp;
@@ -473,6 +499,11 @@ namespace TrainingPrograms.cs.Problems
             Console.WriteLine($"The sum of the numbers in the given number {inp} is {sum}");
         }
 
+        /// <summary>
+        /// inp=321
+        /// op=3
+        /// </summary>
+        /// <param name="inp"></param>
         public static void CountDigitsInAGivenInteger(int inp)
         {
             int count = 0, temp = inp;
@@ -482,6 +513,425 @@ namespace TrainingPrograms.cs.Problems
                 count++;
             }
             Console.WriteLine($"The count of digits in the given number {inp} is {count}");
+        }
+
+        /// <summary>
+        /// 3 2 1
+        /// 3 2
+        /// 3
+        /// </summary>
+        /// <param name="numb"></param>
+        public static void PrintNumbersInTheRangeAsPettern(int numb)
+        {
+            for (int i = 1; i <= numb; i++)
+            {
+                for (int j = numb; i <= j; j--)
+                {
+                    Console.Write($"{j} ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        /// <summary>
+        /// 1
+        /// 1 2
+        /// 1 2 3
+        /// </summary>
+        public static void PrintNumbersInPattern(int numberOfRows)
+        {
+            for (int i = 1; i <= numberOfRows; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write(j);
+                }
+                Console.WriteLine();
+            }
+        }
+
+        /// <summary>
+        /// *
+        /// * *
+        /// * * *
+        /// * * * *
+        /// * * * * *
+        /// </summary>
+        /// <param name="numberOfRows"></param>
+        public static void PrintHalfPyramid(int numberOfRows)
+        {
+            for (int i = 0; i < numberOfRows; i++)
+            {
+                for (int j = 0; j <= i; j++)
+                {
+                    Console.Write("* ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        /// <summary>
+        /// * * * * *
+        /// * * * *
+        /// * * *
+        /// * *
+        /// *
+        /// </summary>
+        /// <param name="numberOfRows"></param>
+        public static void PrintInvertedHalfPyramid(int numberOfRows)
+        {
+            for (int i = numberOfRows; i > 0; i--)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        /// <summary>
+        ///        *
+        ///      * * *
+        ///    * * * * *
+        ///  * * * * * * *
+        ///* * * * * * * * *
+        /// </summary>
+        /// <param name="numberOfRows"></param>
+        public static void PrintFullPyramid(int numberOfRows)
+        {
+            for (int i = 0; i < numberOfRows; i++)
+            {
+                for (int j = numberOfRows - i; j > 0; j--)
+                {
+                    Console.Write(" ");
+                }
+                for (int k = 0; k <= i; k++)
+                {
+                    Console.Write("* ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        /// <summary>
+        ///* * * * * * * * *
+        ///  * * * * * * *
+        ///    * * * * *
+        ///      * * *
+        ///        *
+        /// </summary>
+        /// <param name="numberOfRows"></param>
+        public static void PrintInvertedFullPyramid(int numberOfRows)
+        {
+            for (int i = 1; i <= numberOfRows; i++)
+            {
+                for (int j = numberOfRows; j >= i; j--)
+                {
+                    Console.Write("* ");
+                }
+                Console.WriteLine();
+                for (int k = 1; k <= i; k++)
+                {
+                    Console.Write(" ");
+                }
+            }
+        }
+
+        /// <summary>
+        ///        *
+        ///      * * *
+        ///    * * * * *
+        ///  * * * * * * *
+        ///* * * * * * * * *
+        ///  * * * * * * *
+        ///    * * * * *
+        ///      * * *
+        ///        *
+        /// </summary>
+        /// <param name="numberOfRows"></param>
+        public static void PrintDiamondPattern(int numberOfRows)
+        {
+            if (numberOfRows % 2 == 0)
+            {
+                numberOfRows++;
+            }
+            for (int i = 0; i < numberOfRows - 1; i++)
+            {
+                for (int j = numberOfRows - i; j > 0; j--)
+                {
+                    Console.Write(" ");
+                }
+                for (int k = 0; k <= i; k++)
+                {
+                    Console.Write("* ");
+                }
+                Console.WriteLine();
+            }
+            for (int i = 1; i <= numberOfRows; i++)
+            {
+                for (int j = numberOfRows; j >= i; j--)
+                {
+                    Console.Write(" *");
+                }
+                Console.WriteLine();
+                for (int k = 1; k <= i; k++)
+                {
+                    Console.Write(" ");
+                }
+            }
+        }
+
+        /// <summary>
+        /// "( { [ ] } )" => true
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool CheckValidPranthesis(string str)
+        {
+            Stack<char> stack = new Stack<char>();
+
+            if (str.Length % 2 != 0)
+            {
+                return false;
+            }
+
+            foreach (var item in str)
+            {
+                if (item == '{' || item == '(' || item == '[')
+                {
+                    stack.Push(item);
+                }
+                else if (item == '}' && stack.Peek().Equals('{'))
+                {
+                    stack.Pop();
+                }
+                else if (item == ')' && stack.Peek().Equals('('))
+                {
+                    stack.Pop();
+                }
+                else if (item == ']' && stack.Peek().Equals('['))
+                {
+                    stack.Pop();
+                }
+            }
+            if (stack.Count != 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// inp=program
+        /// out=
+        ///        G
+        ///       GR
+        ///      GRA
+        ///     GRAM
+        ///    GRAMP
+        ///   GRAMPR
+        ///  GRAMPRO
+        /// </summary>
+        /// <param name="str"></param>
+        public static void PrintTheStringFromCentreToEndFollowedByStart(string str)
+        {
+            //List<string> res = new();
+            //var mid = str.Length / 2;
+            //for (int i = mid; i < str.Length; i++)
+            //{
+            //    res.Add(str[i].ToString());
+            //}
+            //for (int i = 0; i < mid; i++)
+            //{
+            //    res.Add(str[i].ToString());
+            //}
+            //for (int i = 0; i < res.Count; i++)
+            //{
+            //    for (int j = str.Length - i; j > 0; j--)
+            //    {
+            //        Console.Write(" ");
+            //    }
+            //    for (int j = 0; j <= i; j++)
+            //    {
+            //        Console.Write(res[j].ToUpper());
+            //    }
+            //    Console.WriteLine();
+            //}
+            for (int i = 0; i < str.Length; i++)
+            {
+                for (int j = 0; j < str.Length - i - 1; j++)
+                {
+                    Console.Write(" ");
+                }
+                int mid = str.Length / 2;
+                for (int j = 0; j <= i; j++)
+                {
+                    Console.Write(str[mid].ToString().ToUpper());
+                    mid++;
+                    if (mid == str.Length)
+                    {
+                        mid = 0;
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
+        /// <summary>
+        /// inp=a1b10
+        /// op=abbbbbbbbbb
+        /// </summary>
+        public static void ExpandTheGivenString(string str)
+        {
+            Console.WriteLine($"The given input is {str}");
+            Dictionary<char, string> dic = new();
+            //for (int i = 0; i < str.Length; i++)  //found better way so commenting
+            //{
+            //    if (char.IsLetter(str[i]))
+            //    {
+            //        dic.Add(str[i], "0");
+            //    }
+            //    if (char.IsDigit(str[i]) && char.IsLetter(str[i - 1]))
+            //    {
+            //        dic[str[i - 1]] = str[i].ToString();
+            //    }
+            //    if (char.IsDigit(str[i]) && char.IsDigit(str[i - 1]))
+            //    {
+            //        dic[str[i - 2]] = dic.Last().Value + str[i];
+            //    }
+            //}
+            //foreach (var item in dic)
+            //{
+            //    for (int i = 0; i < int.Parse(item.Value); i++)
+            //    {
+            //        Console.Write(item.Key);
+            //    }
+            //}
+            char ch = '$';
+            string num = "";
+            for (int i = 0; i < str.Length; i++)
+            {
+                char newRes = str[i];
+                if (char.IsLetter(str[i]))
+                {
+                    if (ch != '$' && !string.IsNullOrEmpty(num))
+                    {
+                        dic.Add(ch, num!);
+                        num = null!;
+                    }
+                    ch = newRes;
+                }
+                else if (char.IsDigit(str[i]))
+                {
+                    num = num + str[i];
+                    if (i == str.Length - 1 && !dic.ContainsKey(ch))
+                    {
+                        dic.Add(ch, num);
+                    }
+                }
+            }
+            foreach (var item in dic)
+            {
+                for (int i = 0; i < int.Parse(item.Value); i++)
+                {
+                    Console.Write(item.Key);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 01 07 13 19 25 31
+        /// 02 08 14 20 26
+        /// 03 09 15 21
+        /// 04 10 16
+        /// 05 11
+        /// 06
+        /// </summary>
+        /// <param name="enterNumberOfRows"></param>
+        public static void PrintNumbersInRageAsRows(int enterNumberOfRows)
+        {
+            int temp = enterNumberOfRows;
+            for (int i = 1; i <= enterNumberOfRows; i++)
+            {
+                int num = i;
+                for (int j = temp; j >= i; j--)
+                {
+                    if (num <= 9)
+                    {
+                        Console.Write($"0{num} ");
+                    }
+                    else
+                    {
+                        Console.Write($"{num} ");
+                    }
+                    num += enterNumberOfRows;
+                }
+                Console.WriteLine();
+            }
+        }
+
+        /// <summary>
+        /// Example: [4, 6, 23, 10, 1, 3] the output should return true because 4 + 6 + 10 + 3 = 23
+        /// Input: new int[] {5,7,16,1,2}
+        /// Output: false
+        /// Input: new int[] {3,5,-1,8,12}
+        /// Output: true
+        /// </summary>
+        /// <param name="inp"></param>
+        public static string VerifyTheInputNumbersStoredInArray(int[] inpList)//yet to complete
+        {
+            var val = inpList.ToList();
+            val.Sort();
+            int max = val.Last();
+            val.Remove(max);
+            for (int i = 0; i < val.Count; i++)
+            {
+                int result = val[i];
+                for (int j = i + 1; j < val.Count; j++)
+                {
+                    result += val[j];
+                    if (result == max)
+                    {
+                        return "true";
+                    }
+                    else if (result > max)
+                    {
+                        break;
+                    }
+                }
+            }
+            return "false";
+        }
+
+        /// <summary>
+        /// 0 1 2 3 4 5 6
+        /// * * * * * * * 0
+        /// * *       * * 1
+        /// *   *   *   * 2
+        /// *     *     * 3
+        /// *   *   *   * 4
+        /// * *       * * 5
+        /// * * * * * * * 6
+        /// </summary>
+        /// <param name="rowCount"></param>
+        public static void PrintHourGlassPattern(int rowCount)
+        {
+            for (int i = 0; i < rowCount; i++)
+            {
+                for (int j = 0; j < rowCount; j++)
+                {
+                    if (i == j | i == 0 | i == rowCount - 1 | j == 0 | j == rowCount - 1 | i + j == rowCount - 1)
+                    {
+                        Console.Write("* ");
+                    }
+                    else
+                    {
+                        Console.Write("  ");
+                    }
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
