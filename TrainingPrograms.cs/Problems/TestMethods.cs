@@ -1,6 +1,9 @@
 using OpenQA.Selenium.DevTools.V125.HeapProfiler;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
+using TrainingPrograms.cs.ChromeActions.ControlsExtension;
 
 namespace TrainingPrograms.cs.Problems
 {
@@ -879,7 +882,7 @@ namespace TrainingPrograms.cs.Problems
         /// Output: true
         /// </summary>
         /// <param name="inp"></param>
-        public static string VerifyTheInputNumbersStoredInArray(int[] inpList)//yet to complete
+        public static string VerifyTheInputNumbersStoredInArray(int[] inpList)//yet to complete inp-[3, 5, 10, 18, 19, 4, 8, 12], op-true
         {
             var val = inpList.ToList();
             val.Sort();
@@ -932,6 +935,65 @@ namespace TrainingPrograms.cs.Problems
                 }
                 Console.WriteLine();
             }
+        }
+
+        public static int recursiveHelper(int inp)
+        {
+            if (inp <= 1)
+            {
+                //Console.WriteLine("if = " + inp);
+                return inp;
+            }
+            else
+            {
+                //Console.WriteLine("else = " + inp);
+                return recursiveHelper(inp - 1) + recursiveHelper(inp - 2);
+            }
+        }
+
+        public static int FibonaciUsingRecursive(int inp)
+        {
+            for (int i = 0; i < inp; i++)
+            {
+                Console.Write(recursiveHelper(i) + " ");
+            }
+            return inp;
+        }
+
+        /// <summary>
+        /// Input: haystack = "sadbutsad", needle = "sad"
+        /// Explanation: "sad" occurs at index 0 and 6.
+        /// The first occurrence is at index 0, so we return 0.
+        /// Output: 0
+        ///
+        /// Input: haystack = "leetcode", needle = "leeto"
+        /// Output: -1
+        /// Explanation: "leeto" did not occur in "leetcode", so we return -1.
+        /// </summary>
+        public static void FindIndexOfFirstOccurrenceInString(string inp, string subStr)//using sliding window concept
+        {
+            if (subStr.Length > inp.Length)
+            {
+                Console.WriteLine("-1");
+                return;
+            }
+            for (int i = 0; i < inp.Length + 1 - subStr.Length; i++)
+            {
+                string str = "";
+                int j = 0, k = i;
+                while (j < subStr.Length)
+                {
+                    str += inp[k++];
+                    j++;
+                }
+                if (str == subStr)
+                {
+                    Console.WriteLine(i);
+                    return;
+                }
+            }
+            Console.WriteLine("-1");
+            return;
         }
     }
 }

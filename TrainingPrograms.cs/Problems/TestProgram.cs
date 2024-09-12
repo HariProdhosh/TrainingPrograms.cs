@@ -1,4 +1,6 @@
-﻿namespace TrainingPrograms.cs.Problems
+﻿using TrainingPrograms.cs.Problems.LeetCode;
+
+namespace TrainingPrograms.cs.Problems
 {
     public class TestProgram : TestMethods
     {
@@ -42,7 +44,12 @@
             //ExpandTheGivenString("a10b11c19d3e01f9");
             //PrintNumbersInRageAsRows(6);
             Console.WriteLine(VerifyTheInputNumbersStoredInArray([3, 5, 10, 18, 19, 4, 8, 12]));
-            PrintHourGlassPattern(10);
+            //PrintHourGlassPattern(10);
+            //FibonaciUsingRecursive(10);
+            //FindIndexOfFirstOccurrenceInString("sidbutsad", "sad");
+
+            //LeetCode**************************************************************************************************************************************
+            Console.WriteLine(LeetCodeProblems.TwoSum([2, 7, 11, 15], 9));
         }
     }
 }
