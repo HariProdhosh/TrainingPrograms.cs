@@ -995,5 +995,16 @@ namespace TrainingPrograms.cs.Problems
             Console.WriteLine("-1");
             return;
         }
+
+        public static void SplitNumbersAndTextInTheGivenString(string str)
+        {
+            string textReg = @"[^a-zA-Z]";
+            string numbReg = @"[^\d]";
+            //string numbReg = @"[^0-9]";
+            string text, numb;
+            text = Regex.Replace(str, textReg, "");
+            numb = Regex.Replace(str, numbReg, "");
+            Console.WriteLine($"Text is {text}, number is {numb}");
+        }
     }
 }

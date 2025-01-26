@@ -6,6 +6,13 @@ namespace TrainingPrograms.cs.ChromeActions.ControlsExtension
     public static class ControlExtension
     {
         private const int defaultTimeOutInSeconds = 30;
+        /*
+         public static IWebElement waitForElement(this ISearchContext context, IWebDriver driver, By by, int timeOut = defaultTimeOutInSeconds)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeOut)) { PollingInterval = TimeSpan.FromMilliseconds(100)}; // by default this will be in 500 but here we are changing it to 100Ms
+            return wait.Until(x => context.FindElement(by));
+        }
+         */
 
         public static IWebElement waitForElement(this ISearchContext context, IWebDriver driver, By by, int timeOut = defaultTimeOutInSeconds)
         {
